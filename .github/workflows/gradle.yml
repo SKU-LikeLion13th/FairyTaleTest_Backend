@@ -91,7 +91,7 @@ jobs:
       - name: Execute remote commands
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} "
-            sudo fuser -k 8087/tcp || ture &&
+            sudo fuser -k 8087/tcp || true &&
             mkdir -p /home/user/calc &&
             cd /home/ubuntu/calc &&
             nohup java -jar *-SNAPSHOT.jar --spring.profiles.active=build > nohup.out 2>&1 &"
