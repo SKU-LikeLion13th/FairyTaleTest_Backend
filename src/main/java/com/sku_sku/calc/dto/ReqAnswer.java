@@ -1,4 +1,5 @@
 package com.sku_sku.calc.dto;
 
-public record ReqAnswer(Long questionId, String answer) {}
+public record ReqAnswer(Long questionId, String answer) {
+}
 
