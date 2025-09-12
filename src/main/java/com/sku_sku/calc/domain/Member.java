@@ -1,0 +1,32 @@
+package com.sku_sku.calc.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.UUID;
+
+@Entity
+@NoArgsConstructor
+@Getter
+public class Member {
+
+    @Id
+    @GeneratedValue
+    private UUID id; // pk
+
+    private String major; // 학과
+
+    private String studentId; // 학번
+
+    private String name; // 이름
+
+    public Member(String major, String studentId, String name) {
+        this.major = major;
+        this.studentId = studentId;
+        this.name = name;
+    }
+
+}

@@ -1,4 +1,4 @@
-package com.sku_sku.clac.config;
+package com.sku_sku.calc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
