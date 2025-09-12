@@ -11,15 +11,16 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class MbtiCalcService {
+public class MbtiService {
 
     @Transactional
-    public MbtiResultRes calculate(List<ReqAnswer> answerList) {
+    public MbtiResultRes calculate(List<ReqAnswer> reqAnswerList) {
         int e = 0, i = 0,
                 n = 0, s = 0,
                 f = 0, t = 0,
                 j = 0, p = 0;
-        for (ReqAnswer reqAnswer : answerList) {
+
+        for (ReqAnswer reqAnswer : reqAnswerList) {
             switch (reqAnswer.answer()) {
                 case "E" -> e++;
                 case "I" -> i++;
