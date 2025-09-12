@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -23,10 +24,14 @@ public class Member {
 
     private String name; // 이름
 
+    @Setter
+    private boolean isCheck; // 상품 수령 여부
+
     public Member(String major, String studentId, String name) {
         this.major = major;
         this.studentId = studentId;
         this.name = name;
+        this.isCheck = false;
     }
 
 }
