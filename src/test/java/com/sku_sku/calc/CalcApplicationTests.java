@@ -1,10 +1,10 @@
-package com.sku_sku.clac;
+package com.sku_sku.calc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClacApplicationTests {
+class CalcApplicationTests {
 
 	@Test
 	void contextLoads() {

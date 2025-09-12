@@ -1,4 +1,4 @@
-package com.sku_sku.clac.controller;
+package com.sku_sku.calc.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
