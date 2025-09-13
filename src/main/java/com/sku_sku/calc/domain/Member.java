@@ -18,19 +18,18 @@ public class Member {
     @GeneratedValue
     private UUID id; // pk
 
-    private String major; // 학과
-
-    private String studentId; // 학번
-
-    private String name; // 이름
+//    private String major; // 학과
+//
+//    private String studentId; // 학번
+//
+//    private String name; // 이름
+    private String memberInfo;
 
     @Setter
     private boolean isCheck; // 상품 수령 여부
 
-    public Member(String major, String studentId, String name) {
-        this.major = major;
-        this.studentId = studentId;
-        this.name = name;
+    public Member(String memberInfo) {
+        this.memberInfo = memberInfo;
         this.isCheck = false;
     }
 
