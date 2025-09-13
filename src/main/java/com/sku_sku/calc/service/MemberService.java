@@ -37,7 +37,7 @@ public class MemberService {
     }
 
     public List<MemberInfoRes> searchByMemberInfo(String memberInfo) {
-        return memberRepository.findByInfoContaining(memberInfo).stream()
+        return memberRepository.findByMemberInfoContaining(memberInfo).stream()
                 .map(dto -> new MemberInfoRes(
                         dto.getMemberInfo(),
                         dto.isCheck()
