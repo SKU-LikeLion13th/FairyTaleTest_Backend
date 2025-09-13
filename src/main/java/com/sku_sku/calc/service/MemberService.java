@@ -2,7 +2,6 @@ package com.sku_sku.calc.service;
 
 import com.sku_sku.calc.domain.Member;
 import com.sku_sku.calc.dto.MemberInfoRes;
-import com.sku_sku.calc.dto.ReqMemberInfo;
 import com.sku_sku.calc.exception.InvalidMemberUUIDException;
 import com.sku_sku.calc.reposiroty.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +36,7 @@ public class MemberService {
         member.setCheck(!member.isCheck());
     }
 
-    public List<MemberInfoRes> searchByStudentId(String memberInfo) {
+    public List<MemberInfoRes> searchByMemberInfo(String memberInfo) {
         return memberRepository.findByInfoContaining(memberInfo).stream()
                 .map(dto -> new MemberInfoRes(
                         dto.getMemberInfo(),
