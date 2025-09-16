@@ -39,7 +39,7 @@ public class MemberService {
     public List<MemberInfoRes> searchByMemberInfo(String memberInfo) {
         return memberRepository.findByMemberInfoContaining(memberInfo).stream()
                 .map(member -> new MemberInfoRes(
-                        member.getUuid(),
+                        member.getId(),
                         member.getMemberInfo(),
                         member.isCheck()
                 ))
@@ -49,7 +49,7 @@ public class MemberService {
     public List<MemberInfoRes> findMemberInfoAll() {
         return memberRepository.findAll().stream()
                 .map(member -> new MemberInfoRes(
-                        member.getUuid(),
+                        member.getId(),
                         member.getMemberInfo(),
                         member.isCheck()
                 ))

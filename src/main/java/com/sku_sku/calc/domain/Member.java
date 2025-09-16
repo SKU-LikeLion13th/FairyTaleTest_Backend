@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Entity
 @NoArgsConstructor
 @Getter
@@ -16,7 +14,7 @@ public class Member {
 
     @Id
     @GeneratedValue
-    private UUID uuid; // pk
+    private Long id; // pk
 
 //    private String major; // 학과
 //
