@@ -23,9 +23,9 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/check/{uuid}")
-    public ResponseEntity<Void> checkProductReceipt(@PathVariable UUID uuid) {
-        memberService.checkProductReceipt(uuid);
+    @PutMapping("/check/{id}")
+    public ResponseEntity<Void> checkProductReceipt(@PathVariable Long id) {
+        memberService.checkProductReceipt(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
