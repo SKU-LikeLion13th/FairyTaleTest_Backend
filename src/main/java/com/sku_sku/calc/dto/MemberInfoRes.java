@@ -1,4 +1,6 @@
 package com.sku_sku.calc.dto;
 
-public record MemberInfoRes(String memberInfo, boolean isCheck) {
+import java.util.UUID;
+
+public record MemberInfoRes(UUID uuid, String memberInfo, boolean isCheck) {
 }
