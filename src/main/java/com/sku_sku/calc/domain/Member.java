@@ -16,7 +16,7 @@ public class Member {
 
     @Id
     @GeneratedValue
-    private UUID id; // pk
+    private UUID uuid; // pk
 
 //    private String major; // 학과
 //

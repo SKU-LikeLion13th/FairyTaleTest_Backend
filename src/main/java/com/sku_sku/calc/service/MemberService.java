@@ -38,9 +38,10 @@ public class MemberService {
 
     public List<MemberInfoRes> searchByMemberInfo(String memberInfo) {
         return memberRepository.findByMemberInfoContaining(memberInfo).stream()
-                .map(dto -> new MemberInfoRes(
-                        dto.getMemberInfo(),
-                        dto.isCheck()
+                .map(member -> new MemberInfoRes(
+                        member.getUuid(),
+                        member.getMemberInfo(),
+                        member.isCheck()
                 ))
                 .toList();
     }
@@ -48,6 +49,7 @@ public class MemberService {
     public List<MemberInfoRes> findMemberInfoAll() {
         return memberRepository.findAll().stream()
                 .map(member -> new MemberInfoRes(
+                        member.getUuid(),
                         member.getMemberInfo(),
                         member.isCheck()
                 ))
