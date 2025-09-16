@@ -31,8 +31,8 @@ public class MemberService {
     }
 
     @Transactional
-    public void checkProductReceipt(UUID uuid) {
-        Member member = memberRepository.findById(uuid).orElseThrow(InvalidMemberUUIDException::new);
+    public void checkProductReceipt(Long id) {
+        Member member = memberRepository.findById(id).orElseThrow(InvalidMemberUUIDException::new);
         member.setCheck(!member.isCheck());
     }
 
