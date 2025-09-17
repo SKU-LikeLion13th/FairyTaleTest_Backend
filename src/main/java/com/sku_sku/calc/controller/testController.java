@@ -9,6 +9,6 @@ public class testController {
 
     @GetMapping("test") //삭제 예정
     public ResponseEntity<String> getMyStatus() {
-        return ResponseEntity.ok("성공");
+        return ResponseEntity.ok("성공 성공 성공");
     }
 }
