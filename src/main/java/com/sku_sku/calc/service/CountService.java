@@ -2,6 +2,7 @@ package com.sku_sku.calc.service;
 
 import com.sku_sku.calc.domain.TestCount;
 import com.sku_sku.calc.dto.MbtiCountRes;
+import com.sku_sku.calc.dto.TotalCountRes;
 import com.sku_sku.calc.reposiroty.MbtiCountRepository;
 import com.sku_sku.calc.reposiroty.TestCountRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,10 @@ public class CountService {
     private final TestCountRepository testCountRepository;
     private final MbtiCountRepository mbtiCountRepository;
 
-    public Long getTotalCount() {
+    public TotalCountRes getTotalCount() {
         return testCountRepository.findById(1L)
-                .map(TestCount::getCount)
-                .orElse(0L);
+                .map(totalCount -> new TotalCountRes(totalCount.getCount()))
+                .orElse(new TotalCountRes(0L));
     }
 
 
