@@ -1,7 +1,11 @@
 package com.sku_sku.calc.service;
 
+import com.sku_sku.calc.domain.MbtiCount;
+import com.sku_sku.calc.domain.TestCount;
 import com.sku_sku.calc.dto.MbtiResultRes;
 import com.sku_sku.calc.dto.ReqAnswer;
+import com.sku_sku.calc.reposiroty.MbtiCountRepository;
+import com.sku_sku.calc.reposiroty.TestCountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class MbtiService {
+
+    private final TestCountRepository testCountRepository;
+    private final MbtiCountRepository mbtiCountRepository;
 
     @Transactional
     public MbtiResultRes calculate(List<ReqAnswer> reqAnswerList) {
@@ -33,13 +40,27 @@ public class MbtiService {
             }
         }
 
-        StringBuilder mbti = new StringBuilder();
-        mbti.append(e >= i ? "E" : "I");
-        mbti.append(n >= s ? "N" : "S");
-        mbti.append(f >= t ? "F" : "T");
-        mbti.append(j >= p ? "J" : "P");
+        String mbti =
+                (e >= i ? "E" : "I")
+                + (n >= s ? "N" : "S")
+                + (f >= t ? "F" : "T")
+                + (j >= p ? "J" : "P");
 
-        return new MbtiResultRes(mbti.toString());
+        increaseTestCount(); // 테스트 참여자 수
+        increaseMbtiCount(mbti); // mbti 별로 카운트
+
+        return new MbtiResultRes(mbti);
     }
 
+    private void increaseTestCount() {
+        TestCount testCount = testCountRepository.findById(1L)
+                .orElseGet(() -> testCountRepository.save(new TestCount()));
+        testCount.increase();
+    }
+
+    private void increaseMbtiCount(String mbti) {
+        MbtiCount mbtiCount = mbtiCountRepository.findByMbti(mbti)
+                .orElseGet(() -> mbtiCountRepository.save(new MbtiCount(mbti)));
+        mbtiCount.increase();
+    }
 }
