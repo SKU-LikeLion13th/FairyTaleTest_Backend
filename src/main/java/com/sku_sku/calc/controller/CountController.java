@@ -1,6 +1,7 @@
 package com.sku_sku.calc.controller;
 
 import com.sku_sku.calc.dto.MbtiCountRes;
+import com.sku_sku.calc.dto.TotalCountRes;
 import com.sku_sku.calc.service.CountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ public class CountController {
     private final CountService countService;
 
     @GetMapping("/total")
-    public ResponseEntity<Long> getTotalCount() {
+    public ResponseEntity<TotalCountRes> getTotalCount() {
         return ResponseEntity.status(HttpStatus.OK).body(countService.getTotalCount());
     }
 
